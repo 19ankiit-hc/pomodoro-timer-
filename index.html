@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Study Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Page Header ── -->
+  <div class="page-header">
+    <p class="header-eyebrow">STAY FOCUSED</p>
+    <h1 class="header-title">Pomodoro Timer</h1>
+    <p class="header-sub">25 minutes of deep work, 5 minutes to recharge.</p>
+  </div>
+
+  <!-- ── Mode Tabs ── -->
+  <div class="mode-tabs">
+    <button class="tab active" id="tab-study" onclick="switchMode('focus')">
+      <span class="tab-name">Study</span>
+      <span class="tab-mins">25 min</span>
+    </button>
+    <button class="tab" id="tab-break" onclick="switchMode('break')">
+      <span class="tab-name">Break</span>
+      <span class="tab-mins">5 min</span>
+    </button>
+  </div>
+
+  <!-- ── Timer Card ── -->
+  <div class="timer-card">
+
+    <p class="session-label" id="session-label">STUDY SESSION</p>
+
+    <!-- Circular ring + digits -->
+    <div class="ring-wrap">
+      <svg class="ring-svg" viewBox="0 0 280 280">
+        <circle class="ring-bg"   cx="140" cy="140" r="120" />
+        <circle class="ring-prog" cx="140" cy="140" r="120" id="ring-prog" />
+      </svg>
+      <div class="ring-inner">
+        <div class="time-digits" id="time-digits">25:00</div>
+        <div class="time-status" id="time-status">Ready</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-start" id="btn-start" onclick="startTimer()">Start</button>
+      <button class="btn btn-pause" id="btn-pause" onclick="pauseTimer()">Pause</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-reset" onclick="resetTimer()">Reset</button>
+    </div>
+
+  </div><!-- /timer-card -->
+
+  <!-- ── Stats Bar ── -->
+  <div class="stats-card">
+    <div class="stat">
+      <span class="stat-num" id="stat-count">0</span>
+      <span class="stat-lbl">Pomodoros today</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num" id="stat-time">0m</span>
+      <span class="stat-lbl">Focus time today</span>
+    </div>
+  </div>
+
+  <!-- ── Toast ── -->
+  <div class="toast" id="toast">
+    <span id="toast-text">Session complete!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
